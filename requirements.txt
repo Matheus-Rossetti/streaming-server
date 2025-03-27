@@ -11,6 +11,7 @@ MarkupSafe==3.0.2
 pickleshare==0.7.5
 pure_eval==0.2.3
 pyzmq==26.3.0
+pywin32==310
 rpds-py==0.23.1
 six==1.17.0
 soupsieve==2.6

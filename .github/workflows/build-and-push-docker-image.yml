@@ -16,8 +16,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag streamingserverflask:latest
+      run: docker build . --file Dockerfile --tag matheuzdreher/streamingserverflask:latest
     - name: Push image to Docker Hub
       run: |
         sudo docker login -u matheuzdreher -p ${{secrets.DOCKER_HUB_TOKEN}}
-        sudo docker push streamingserverflask:latest
+        sudo docker push matheuzdreher/streamingserverflask:latest

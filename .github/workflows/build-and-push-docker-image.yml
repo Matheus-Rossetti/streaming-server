@@ -1,0 +1,23 @@
+name: Build and push image to docker hub
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag streaming-server-flask:$(date +%s)
+    - name: Push image to Docker Hub
+      run: |
+        docker login -u matheuzdreher -p ${{secrests.DOCKER_HUB_TOKEN}}
+        docker push streaming-server-flask:$(date +%s)

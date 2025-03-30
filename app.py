@@ -1,25 +1,23 @@
-from flask import Flask
+from flask import Flask, jsonify
 import os
 
-from flask import send_from_directory
+
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello_world():
-    return 'Streaming de videos'
+    return jsonify('Streaming de vídeos')
 
 
 @app.route('/video/<video_name>/<file_name>')
 def stream(video_name, file_name):
-    video_path = os.path.join('videos', video_name)
-    return send_from_directory(video_path, file_name)
+    return jsonify(f'Seu vídeo estará em: /video/{video_name}/{file_name}')
 
 @app.route('/filmes-lista')
 def lista_de_filmes():
-    lista = os.listdir('videos')
-    return lista
+    return jsonify('lista de todos os filmes:')
 
 
 if __name__ == '__main__':

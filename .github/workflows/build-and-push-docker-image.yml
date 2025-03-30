@@ -19,5 +19,5 @@ jobs:
       run: docker build . --file Dockerfile --tag streamingserverflask:latest
     - name: Push image to Docker Hub
       run: |
-        docker login -u matheuzdreher -p ${{secrets.DOCKER_HUB_TOKEN}}
-        docker push streamingserverflask:latest
+        sudo docker login -u matheuzdreher -p ${{secrets.DOCKER_HUB_TOKEN}}
+        sudo docker push streamingserverflask:latest
